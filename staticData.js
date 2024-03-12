@@ -7,7 +7,7 @@ const intros = [{
     "description" : "Are you in search of a dynamic and motivated entry-level Full Stack Developer ready to make an impact? Look no further! I am a creative problem-solver with a deep passion for web development and a strong foundation in the MERN stack.",
 }];
 
-const about =[
+const abouts =[
     {
         "lottieURL" : "https://lottie.host/73aa0d8f-4544-46da-bfb5-0d78b5a8a1bf/8P1TvoxDXh.json",
         "description1" : "I see web development as an art form, blending the power of JavaScript, React.js, Node.js, and MongoDB to bring ideas to life. From wireframing captivating user interfaces (UI) to architecting efficient back-end systems, I am excited to contribute my skills to a collaborative team.With a knack for responsive web design using HTML5 and CSS3, I create visually stunning and user-friendly interfaces that leave a lasting impression. I thrive in the challenge of building seamless user experiences (UX) that keep visitors engaged and satisfied.",
