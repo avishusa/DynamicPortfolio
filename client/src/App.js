@@ -1,13 +1,35 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Loader from "./components/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { HideLoading, setPortfolioData, showLoading } from "./redux/rootslice";
 
 function App() {
-  const [showloading, setShowloading]=useState(false);
+  const {loading,portfolioData}=useSelector((state)=>state.root);
+  const dispatch=useDispatch();
+ const getPortfolioData = async ()=>{
+  try {
+    dispatch(showLoading());
+    const response = await axios.get('/api/portfolio/get-portfolio-data');
+    dispatch(setPortfolioData(response.data));
+    dispatch(HideLoading());
+  } catch (error) {
+    console.log(error);
+    dispatch(HideLoading());
+  }
+ }
+  useEffect(()=>{
+    if(!portfolioData){
+    getPortfolioData()
+    }
+  },[portfolioData])
+
+ 
   return (
     <BrowserRouter>
-    {showloading ? <Loader /> : null}
+    {loading ? <Loader /> : null}
     <Routes>
       <Route path="/" element={<Home/>}/>
     </Routes>
