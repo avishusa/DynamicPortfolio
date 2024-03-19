@@ -79,3 +79,24 @@
   }
   }
  
+.header h1{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+input, textarea{
+  height: 40px;
+  border: 1 px solid gray;
+  width: 100%;
+  padding-left: 20px;
+}
+
+input:focus{
+  outline: none;
+  border: 2px solid black;
+}
+
+textarea{
+  height: 100px;
+  padding-top: 10px;
+}

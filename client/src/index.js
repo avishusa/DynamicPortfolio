@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import '../node_modules/antd/dist/antd'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
