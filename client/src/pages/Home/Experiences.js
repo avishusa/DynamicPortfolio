@@ -20,11 +20,11 @@ function Experiences() {
                     </div>
             ))}
         </div>
-        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5 w-full'>
                 <h1 className='text-secondary text-xl'>{experiences[selectedItemIndex].title}</h1>
                 <h1 className='text-tertiary text-xl'>{experiences[selectedItemIndex].company}</h1>
                 <p className='text-white'>
-                    
+                    {experiences[selectedItemIndex].description}
                 </p>
 
         </div>
