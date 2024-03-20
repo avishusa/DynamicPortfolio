@@ -5,21 +5,20 @@ import { showLoading, HideLoading, ReloadData } from "../../redux/rootslice";
 import axios from "axios";
 import {message} from "antd";
 
-function AdminProjects() {
+function AdminCourses() {
     const dispatach= useDispatch();
     const {portfolioData}=useSelector((state)=>state.root);
-    const {projects}=portfolioData;
+    const {courses}=portfolioData;
     const [showAddEditModal, setShowAddEditModal] = React.useState(false);
     const [selectedItemForEdit, setSelectedItemForEdit] = React.useState(null);
     const [type,setType]=React.useState("add");
     const [form] = Form.useForm();
 
-
     const onDelete = async (item) => {
 
         try {
             dispatach(showLoading());
-            const response = await axios.post("/api/portfolio/delete-project",{
+            const response = await axios.post("/api/portfolio/delete-course",{
                 _id : item._id,
             });
             dispatach(HideLoading());
@@ -43,10 +42,10 @@ function AdminProjects() {
             let response 
 
             if(selectedItemForEdit){
-                response= await axios.post("/api/portfolio/update-project", {...values,_id:selectedItemForEdit._id});
+                response= await axios.post("/api/portfolio/update-course", {...values,_id:selectedItemForEdit._id});
 
             }else{
-                response= await axios.post("/api/portfolio/add-project", values);
+                response= await axios.post("/api/portfolio/add-course", values);
 
             }
             dispatach(HideLoading())
@@ -57,7 +56,6 @@ function AdminProjects() {
                 dispatach(HideLoading());
                 dispatach(ReloadData(true));
                 form.resetFields();
-
             }else{
                 message.error(response.data.message);
                 console.log(response.data.message);
@@ -79,27 +77,27 @@ function AdminProjects() {
                 setSelectedItemForEdit(null);
                 setShowAddEditModal(true);
             }}>
-                Add Project
+                Add Course
             </button>
 
         </div>
         <div className='grid grid-cols-3 gap-5'>
-        {projects.map((project)=>(
+        {courses.map((course)=>(
             <div className='shadow border p-5 border-gray-400 flex flex-col gap-5'>
-                <h1 className='text-primary text-xl font-bold'>{project.title}</h1>
+                <h1 className='text-primary text-xl font-bold'>{course.title}</h1>
                 <hr/>
-                <img src={project.image} alt='' className='h-60 w-80' />
-                <h1>{project.description}</h1>
+                <img src={course.image} alt='' className='h-60 w-80' />
+                <h1>{course.description}</h1>
                 <div className='flex justify-end gap-5 mt-5'>
                     <button className='bg-primary text-white px-5 py-2 ' 
                     onClick={()=>{
-                        setSelectedItemForEdit(project);
+                        setSelectedItemForEdit(course);
                         setShowAddEditModal(true);
                         setType('edit');
                     }}>Edit</button>
                     <button className='bg-red-500 text-white px-5 py-2 ' 
                     onClick={()=>{
-                        onDelete(project)
+                        onDelete(course)
                     }}>Delete</button>
                 </div>
                 </div>
@@ -109,7 +107,7 @@ function AdminProjects() {
                     (type==='add' || selectedItemForEdit) 
                     &&
                     <Modal visible={showAddEditModal}
-                    title={selectedItemForEdit ? "Edit project" : "Add project"}
+                    title={selectedItemForEdit ? "Edit course" : "Add course"}
                     footer={null}
                     onCancel={()=>
                     {setShowAddEditModal(false)
@@ -130,9 +128,7 @@ function AdminProjects() {
                             <Form.Item name='link' label='Link'>
                                 <textarea placeholder="Link" />
                             </Form.Item>
-                            <Form.Item name='technologies' label='Technologies'>
-                                <textarea placeholder="Technologies" />
-                            </Form.Item>
+                           
                             <div className='flex justify-end'>
                             <button className='border-primary text-primary bg-white px-5 py-2' onClick={()=>{setShowAddEditModal(false)}}>
                             Cancel
@@ -149,4 +145,4 @@ function AdminProjects() {
   )
 }
 
-export default AdminProjects
+export default AdminCourses
