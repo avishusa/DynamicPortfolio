@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Intro, About, Project, Contact, Experience, Course } = require('../models/portfolioModel');
-
+const User=require('../models/userModel')
 //API for getting all the data
 router.get('/get-portfolio-data', async (req, res) => {
 
@@ -222,5 +222,55 @@ router.post("/delete-course", async (req,res)=>{
         res.status(500).send(error);
     }
 })
+
+//Add contact
+
+
+//update contact
+router.post("/update-contact", async (req,res)=>{
+
+    try {
+        const contact = await Contact.findByIdAndUpdate(
+            {_id:req.body._id},
+            req.body,
+            {new:true}
+        );
+        res.status(200).send({
+            data : contact,
+            success : true,
+            message: "Contact updated successfully"
+        })
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
+
+//admin login
+
+router.post("/admin-login",async(req,res)=>{
+    try {
+        const user = await User.findOne({username:req.body.username,password:req.body.password});
+        if(user){
+            res.status(200).send({
+                data:user,
+                success:true,
+                message:"Login Successful"
+            })
+        }
+        else{
+            res.status(200).send({
+                data:user,
+                success:false,
+                message:"Login failed check your creds"
+            })
+        }
+        
+    } catch (error) {
+        res.status(500).send(error);
+
+    }
+})
+
+
 
 module.exports = router;
