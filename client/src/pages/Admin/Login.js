@@ -9,14 +9,8 @@ function Login() {
         username: "",
         password: ""
     });
-
-    const handleUsernameChange = (e) => {
-        setUser(prevUser => ({ ...prevUser, username: e.target.value }));
-    };
-
-    const handlePasswordChange = (e) => {
-        setUser(prevUser => ({ ...prevUser, password: e.target.value }));
-    };
+    
+    
     const dispatch=useDispatch();
     const login = async () =>{
 
@@ -26,7 +20,7 @@ function Login() {
             dispatch(HideLoading());
             if(response.data.success){
                 message.success(response.data.message)
-                localStorage.setitem("token",response.data);
+                localStorage.setItem("token",JSON.stringify(response.data));
                 window.location.href="/admin";
             }else{
                 message.error(response.data.error)
@@ -37,14 +31,14 @@ function Login() {
     }
 
     return (
-        <div className='flex justify-center items-center h-screen'>
-            <div className='w-96 flex gap-5 p-5 shadow border border-gray-500 flex-col'>
+        <div className='flex justify-center items-center h-screen bg-primary'>
+            <div className='w-96 flex gap-5 p-5 shadow border border-gray-500 flex-col bg-white'>
             <h1 className='text-2xl'>Admin Login</h1>
             <hr/>
             <label htmlFor="username">Username:</label>
-            <input placeholder="Username" id="username" type='text' value={user.username} onChange={handleUsernameChange} />
+            <input placeholder="Username" id="username" type='text' value={user.username} onChange={(e)=>setUser({...user,username:e.target.value})} />
             <label htmlFor="password">Password:</label>
-            <input placeholder="Password" id="password" type='password' value={user.password} onChange={handlePasswordChange} />
+            <input placeholder="Password" id="password" type='password' value={user.password} onChange={(e)=>setUser({...user,password:e.target.value})} />
             <button className='bg-primary text-white p-2 ' onClick={login}> LogIn</button>
         </div>
         </div>
