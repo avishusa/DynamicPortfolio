@@ -22,21 +22,21 @@ function Projectss() {
                     </div>
             ))}
         </div>
-        <div className='flex items-center justify-center gap-10 sm:flex-col'>
-        <img src={projects[selectedItemIndex].image} alt='' className="h-60 w-72" />
-        <div className='flex flex-col gap-5'>
-                <h1 className='text-secondary text-xl'>{projects[selectedItemIndex].title}</h1>
-                <h1 className='text-tertiary text-xl'>{projects[selectedItemIndex].technologies}</h1>
-                <p className='text-white'>
-                    
+        {/* <div className='flex items-center justify-center gap-10 sm:flex-col'> */}
+        {/* <img src={projects[selectedItemIndex].image} alt='' className="h-60 w-72" /> */}
+        <div className='flex flex-col gap-5 w-full'>
+                <h1 className='text-secondary text-2xl'>Title : {projects[selectedItemIndex].title}</h1>
+                <h1 className='text-tertiary text-2xl'>Techs : {projects[selectedItemIndex].technologies.join(', ')}</h1>
+                <p className='text-white text-xl'>
+                {projects[selectedItemIndex].description}
                 </p>
-
+                <p className='text-tertiary text-2xl'><a target="_blank" href={projects[selectedItemIndex].link}>Go to the Website !</a></p>
         </div>
         </div>
        
 
       </div>
-    </div>
+    // </div>
   )
 }
 

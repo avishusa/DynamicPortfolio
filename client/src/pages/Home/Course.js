@@ -22,21 +22,20 @@ function Course() {
                     </div>
             ))}
         </div>
-        <div className='flex items-center justify-center gap-10 sm:flex-col'>
-        <div className='flex flex-col gap-5'>
-                <h1 className='text-secondary text-xl'>{courses[selectedItemIndex].title}</h1>
+        {/* <div className='flex items-center justify-center gap-10 sm:flex-col'> */}
+        {/* <img src={courses[selectedItemIndex].image} alt='' className="h-50 w-80" /> */}
+        <div className='flex flex-col gap-5 w-full'>
+                <h1 className='text-secondary text-2xl'>Title : {courses[selectedItemIndex].title}</h1>
                 {/* <h1 className='text-tertiary text-xl'>{courses[selectedItemIndex].company}</h1> */}
-                <p className='text-white'>
-                    
+                <p className='text-white text-xl'>
+                    {courses[selectedItemIndex].description}
                 </p>
 
         </div>
-        <img src={courses[selectedItemIndex].image} alt='' className="h-50 w-80" />
-
         </div>
 
       </div>
-    </div>
+    // </div>
   )
 }
 

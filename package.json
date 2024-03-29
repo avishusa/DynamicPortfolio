@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "Dynamic Portfolio Website: A sleek and modern portfolio showcasing my projects, built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and styled with Tailwind CSS. Tailored for recruiters and potential clients to explore my work effortlessly",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "18.14.2",
+    "npm":"9.5.0"
   },
+
+  "scripts" :{
+    "client-install" : "npm install --prefix client" ,
+    "server" : "nodemon server.js",
+    "client" : "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start" : "node server.js",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm --prefix client && npm run build --prefix client"
+    },
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -21,9 +21,9 @@ function Experiences() {
             ))}
         </div>
         <div className='flex flex-col gap-5 w-full'>
-                <h1 className='text-secondary text-xl'>{experiences[selectedItemIndex].title}</h1>
-                <h1 className='text-tertiary text-xl'>{experiences[selectedItemIndex].company}</h1>
-                <p className='text-white'>
+                <h1 className='text-secondary text-2xl'>Title : {experiences[selectedItemIndex].title}</h1>
+                <h1 className='text-tertiary text-2xl'>Company : {experiences[selectedItemIndex].company}</h1>
+                <p className='text-white text-xl'>                  
                     {experiences[selectedItemIndex].description}
                 </p>
 
