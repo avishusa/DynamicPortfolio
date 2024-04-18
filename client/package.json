@@ -48,5 +48,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },
-  "proxy": "https://avish-portfolio.onrender.com/"
+  "proxy": "https://avish-portfolio.onrender.com"
 }
