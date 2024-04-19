@@ -19,7 +19,7 @@ function AdminProjects() {
 
         try {
             dispatach(showLoading());
-            const response = await axios.post("/api/portfolio/delete-project",{
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/delete-project",{
                 _id : item._id,
             });
             dispatach(HideLoading());

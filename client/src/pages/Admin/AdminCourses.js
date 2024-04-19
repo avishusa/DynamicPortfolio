@@ -18,7 +18,7 @@ function AdminCourses() {
 
         try {
             dispatach(showLoading());
-            const response = await axios.post("/api/portfolio/delete-course",{
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/delete-course",{
                 _id : item._id,
             });
             dispatach(HideLoading());

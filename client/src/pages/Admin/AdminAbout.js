@@ -14,7 +14,7 @@ function AdminAbout() {
           const tempSkills= values.skills.split(",");
           values.skills=tempSkills;
             dispatach(showLoading())
-            const response = await axios.post("/api/portfolio/update-about", {...values,_id:portfolioData.about._id});
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/update-about", {...values,_id:portfolioData.about._id});
             dispatach(HideLoading())
             if(response.data.success){
                 message.success(response.data.message)

@@ -17,7 +17,7 @@ function AdminExperiences() {
 
         try {
             dispatach(showLoading());
-            const response = await axios.post("/api/portfolio/delete-experience",{
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/delete-experience",{
                 _id : item._id,
             });
             dispatach(HideLoading());

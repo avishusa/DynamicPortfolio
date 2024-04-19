@@ -12,7 +12,7 @@ function AdminIntro() {
     const onFinish = async (values) => {
         try {
             dispatach(showLoading())
-            const response = await axios.post("/api/portfolio/update-intro", {...values,_id:portfolioData.intro._id});
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/update-intro", {...values,_id:portfolioData.intro._id});
             dispatach(HideLoading())
             if(response.data.success){
                 message.success(response.data.message)

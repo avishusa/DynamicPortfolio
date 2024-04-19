@@ -12,7 +12,7 @@ function AdminContact() {
     const onFinish = async (values) => {
         try {
             dispatach(showLoading())
-            const response = await axios.post("/api/portfolio/update-contact", {...values,_id:portfolioData.contact._id});
+            const response = await axios.post("https://avish-portfolio.onrender.com/api/portfolio/update-contact", {...values,_id:portfolioData.contact._id});
             dispatach(HideLoading())
             if(response.data.success){
                 message.success(response.data.message)
