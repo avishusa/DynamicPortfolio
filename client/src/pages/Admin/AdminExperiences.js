@@ -39,10 +39,10 @@ function AdminExperiences() {
             let response 
 
             if(selectedItemForEdit){
-                response= await axios.post("/api/portfolio/update-experience", {...values,_id:selectedItemForEdit._id});
+                response= await axios.post("https://avish-portfolio.onrender.com/api/portfolio/update-experience", {...values,_id:selectedItemForEdit._id});
 
             }else{
-                response= await axios.post("/api/portfolio/add-experience", values);
+                response= await axios.post("https://avish-portfolio.onrender.com/api/portfolio/add-experience", values);
 
             }
             dispatach(HideLoading())

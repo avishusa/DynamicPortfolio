@@ -43,10 +43,10 @@ function AdminProjects() {
             let response 
 
             if(selectedItemForEdit){
-                response= await axios.post("/api/portfolio/update-project", {...values,_id:selectedItemForEdit._id});
+                response= await axios.post("https://avish-portfolio.onrender.com/api/portfolio/update-project", {...values,_id:selectedItemForEdit._id});
 
             }else{
-                response= await axios.post("/api/portfolio/add-project", values);
+                response= await axios.post("https://avish-portfolio.onrender.com/api/portfolio/add-project", values);
 
             }
             dispatach(HideLoading())
