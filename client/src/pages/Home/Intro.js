@@ -8,12 +8,12 @@ function Intro() {
   return (
     <div className='h-[80vh] bg-primary flex flex-col items-start justify-center gap-8 py-10'>
         <h1 className='text-white text-xl'>{welcomeText||''}</h1>
-        <h1 className='text-7xl sm:text-3xl text-secondary font-semibold'>{firstname || ""}  {lastname || ""}</h1>
+        <h1 className='text-7xl sm:text-3xl sm:text-center text-secondary font-semibold'>{firstname || ""}  {lastname || ""}</h1>
         <h1 className='text-7xl sm:text-3xl text-white font-semibold'>{caption || ""}</h1>
-        <p className='text-white text-xl w-2/3'>
+        <p className='text-white text-xl w-2/3 sm:w-auto'>
         {description || ""}
         </p>
-        <button className='border-2 border-tertiary text-tertiary px-10 py-3 rounded'><a target="_blank" href='https://drive.google.com/file/d/1OfwjxeIv8Ccs4ZqgO_rJMQMEXsZLMpeb/view?usp=drive_link'>Resume</a></button>
+        <button className='border-2 border-tertiary text-tertiary px-10 py-3 rounded'><a target="_blank" href='https://drive.google.com/file/d/1CUMR158_x716OBo83kvLtKtBzzp2EOSN/view?usp=sharing'>Resume</a></button>
     </div>
   )
 }
